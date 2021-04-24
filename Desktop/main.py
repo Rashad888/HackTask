@@ -83,7 +83,7 @@ class Application(Frame):
         self.btnAbout = Button(frame_main, text="О программе")
         self.btnAbout.pack(side=RIGHT, padx=10, expand=True)
 
-        self.img = tkinter.PhotoImage(file = 'C:\Portfolio\Hackaton\source\picture1.png')
+        self.img = tkinter.PhotoImage(file = 'C:\Portfolio\Hackaton\HackTask\Desktop\source\picture1.png')
         self.pic = Label(frame_main, image=self.img)
         self.pic.pack(side=LEFT, expand=True)
 
@@ -103,8 +103,13 @@ def create_window():
     text = ''.join(text)
     textline = Text(frame_ch, yscrollcommand=scrollbar.set, height=50)
     textline.insert(1.0, text)
-    textline.pack(side=LEFT, fill=BOTH)
+    textline.pack(side=RIGHT, fill=Y, expand=True)
     scrollbar.config(command=textline.yview)
+
+    save = open(str(entry2.get())+"\\result.txt", 'w')
+    save.write("Ответ")
+    save.close()
+
 
 if __name__ == '__main__':
     root = Tk()
